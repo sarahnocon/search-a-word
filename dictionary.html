@@ -1,0 +1,83 @@
+<!DOCTYPE text/html>
+<html ng-app="generic">
+<head>
+	<meta http-equiv="content-type" content="HTML, Bootstrap, XML, Javascript" charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/css/bootstrap/js/jquery-2.2.0.min.js" type="text/javascript"></script>
+	<script src="/css/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/bower_components/angular/app.js"></script>
+	<title>Dictionary</title>
+</head>
+<body>
+<div class="container-fluid">
+<h1></h1>
+<div class="panel">
+<div class="well">
+
+<label><h1><img src="images/search.png" style="height: 40px; vertical-align: text-bottom; padding-right: 5px">Search-a-Word</h1></label>
+<input class="form-control" id="word" name="word" type="text"></input>
+<br>
+<button class="btn btn-primary" type="button" id='submitWord'>Submit</button>
+<br>
+
+</div>
+<script type="text/javascript">
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/dictionary.js', true);
+
+// If specified, responseType must be empty string or "text"
+xhr.responseType = 'text';
+
+xhr.onclick = function () {
+    if (xhr.readyState === xhr.DONE) {
+            console.log(xhr.response);
+            console.log(xhr.responseText);
+
+    }
+};
+
+xhr.send(null);
+
+/*	$(document).ready(function(){
+		$("#submitWord").on('click',function(){
+			//API CALL GOES HERE!
+			$.ajax({
+				type: "GET",
+				url: "/dictionary.js",
+				datatype: "xml"
+			}).done(function(data) {
+				console.log(data);
+			}).fail(function( jqXHR, textStatus, errorThrown){
+				console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
+			});
+
+		});
+
+	});
+*/
+</script>
+<!--
+<div class="container-fluid">
+<h3><script type="text/javascript">document.write(name)</script></h3>
+<xml>
+<entry id="hypocrite"> 
+<ew>hypocrite</ew> 
+<hw>hyp*o*crite</hw> 
+<sound> <wav>hypocr02.wav</wav> </sound> 
+<pr>ˈhi-pə-ˌkrit</pr> 
+<fl>noun</fl> 
+<et>Middle English 
+<it>ypocrite,</it> from Anglo-French, from Late Latin <it>hypocrita,</it> from Greek <it>hypokritēs</it> actor, hypocrite, from <it>hypokrinesthai</it> </et> <def> <date>13th century</date> <sn>1</sn> <dt>:a person who puts on a false appearance of <d_link>virtue</d_link> or religion</dt> <sn>2</sn> <dt>:a person who acts in contradiction to his or her stated beliefs or feelings</dt> </def> <uro> <ure>hypocrite</ure> <fl>adjective</fl> </uro> 
+</entry>
+</xml>
+</div>
+-->
+</div>
+</div>
+</div>
+</body>
